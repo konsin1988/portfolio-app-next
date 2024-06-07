@@ -1,8 +1,9 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import ProjectCard from './ProjectCard'
 import ProjectTag from './ProjectTag'
+
 
 const projectsData = [
     {
@@ -63,6 +64,7 @@ const projectsData = [
 
 const ProjectsSection = () => {
     const [tag, setTag] = useState("All")
+    
 
     const handleTagChange = (newTag) => {
         setTag(newTag)
@@ -71,6 +73,8 @@ const ProjectsSection = () => {
     const filteredProjects = projectsData.filter((project) => 
         project.tag.includes(tag)
     )
+
+    
 
   return (
     <section>
@@ -89,10 +93,10 @@ const ProjectsSection = () => {
             
         </div>
         <div className="md:flex md:flex-wrap md:w-full justify-center">
-            {filteredProjects.map((project) => (
+            {filteredProjects.map((project, index) => (
                 <ProjectCard key={project.id} title={project.title}
                 description={project.description} imgUrl={project.image}
-                gitUrl={project.gitUrl} previewUrl={project.previewUrl}/>
+                gitUrl={project.gitUrl} previewUrl={project.previewUrl} index={index}/>
             ))}
         </div>
 

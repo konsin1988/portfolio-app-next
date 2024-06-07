@@ -18,7 +18,7 @@ export default function Home() {
       <div className="container 
       mx-auto
       px-12
-      py-4 mt-24 scrollbar-hide ">
+      py-4 mt-24">
         <HeroSection/>
         <AchievementSection/>
         <AboutSection/>
